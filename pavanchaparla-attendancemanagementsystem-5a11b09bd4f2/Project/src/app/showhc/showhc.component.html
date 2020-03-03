@@ -1,0 +1,48 @@
+<app-menu></app-menu>
+<div *ngFor="let log of healthcard | async; let i = index">
+<div class="jumbotron border border-dark" style="width:80%; height: 450px; margin-left:35px; margin-top: 20px; background-color: white">
+
+    <img src="https://www.qimpro.com/images-convention/1/53-d1d3cd97-NibhayeVaade.jpg" style="height:20%; width:100%; margin-top:1%; margin-left:1%;">
+    <div class="container">
+    <div class="text-center" style="margin-top:20px" >
+      <h5> SENECA GLOBAL IT SERVICES PVT. LTD. </h5>
+    </div>    
+       
+    <div class="row" style="margin-top:5%">
+      <div class="col-12">
+          <div class="row">
+              <label class="left">NAME</label>
+              <span style="margin-left:18%">: {{log.firstName+" "+log.lastName}}</span>
+          </div>
+          <div class="row">
+            <label class="left">Policy No</label>
+            <span style="margin-left:10.5%">: {{log.policyno}}</span>
+          </div>
+          <div class="row">
+            <label class="left">UHID</label>
+            <span style="margin-left:19.5%">: {{log.uhid}}</span>
+          </div>
+          <div class="row">
+            <label class="left">Emp ID</label>
+
+            <span style="margin-left:15.5%">: {{ associateId }}</span>
+
+          </div>
+          <div class="row">
+              <label class="left">Gender</label>
+              <span style="margin-left:15%">: {{log.gender}}</span>
+          </div>
+          <div class="row">
+            <label class="left">Age</label>
+            <span style="margin-left:23%">: {{ageList[i]}}</span>
+          </div>
+          <div class="row">
+            <label class="left">Validity</label>
+            <span style="margin-left:7%">: {{log.validfrom+"-"+log.validupto}}</span>
+          </div>   
+     </div>
+       
+    </div>
+    </div>
+  </div>
+</div>

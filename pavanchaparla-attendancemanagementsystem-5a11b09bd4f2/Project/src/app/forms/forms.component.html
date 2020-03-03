@@ -1,0 +1,97 @@
+<app-menu></app-menu>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+        <h2>Associate Details</h2>
+        <form name="form" [formGroup]="form" (ngSubmit)="addFormData()">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" class="form-control"  pattern="^[A-Za-z]+$" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && validate.firstName.errors }"/>
+            <div *ngIf="submitted && validate.firstName.errors" class="invalid-feedback">
+              <div *ngIf="validate.firstName.errors.required">First Name is required</div>
+              <div *ngIf="validate.firstName.errors.pattern">First Name should contain only alphabets</div>
+          </div>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" class="form-control" pattern="^[A-Za-z]+$" formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && validate.lastName.errors }" >
+            <div *ngIf="submitted && validate.lastName.errors" class="invalid-feedback">
+              <div *ngIf="validate.lastName.errors.required">Last Name is required</div>
+              <div *ngIf="validate.lastName.errors.pattern">Last Name should contain only alphabets</div>
+          </div>
+          </div>
+          <div class="form-group">
+              <label>BloodGroup</label>
+              <select formControlName="bgroup" class="form-control"  [ngClass]="{ 'is-invalid': submitted && validate.bgroup.errors }" class="browser-default custom-select">
+                
+                <option value="O+">O+VE</option>
+                <option value="O-">O-VE</option>
+                <option value="A+">A+VE</option>
+                <option value="A-">A-VE</option>
+                <option value="B+">B+VE</option>
+                <option value="B-">B-VE</option>
+                <option value="AB+">AB+VE</option>
+                <option value="AB-">AB-VE</option>
+              </select>
+              <div *ngIf="submitted && validate.bgroup.errors" class="invalid-feedback">
+                <div *ngIf="validate.bgroup.errors.required">Blood Group is required</div>
+            </div>
+            </div>
+          <div class="form-group">
+            <label for="eid">Associate Id</label>
+            <input type="text" class="form-control" formControlName="eid" pattern="^[A-Za-z0-9]+$" [ngClass]="{'is-invalid': submitted && validate.eid.errors}">
+            <div  *ngIf="submitted && validate.eid.errors"  class="invalid-feedback">
+                <div *ngIf="validate.eid.errors.required">AssociateId is required</div>
+                <div *ngIf="validate.eid.errors.pattern">Not a Valid Associate Id</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Role</label>
+              <select formControlName="role" class="form-control" [ngClass]="{ 'is-invalid': submitted && validate.role.errors }" class="browser-default custom-select">
+                
+                <option value="Admin">Admin</option>
+                <option value="Associate">Associate</option>
+                <option value="Security">Security</option>
+              </select>
+              <div *ngIf="submitted && validate.role.errors" class="invalid-feedback">
+                <div *ngIf="validate.role.errors.required">Role is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Id</label>
+          <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" formControlName="email" [ngClass]="{'is-invalid': submitted && validate.email.errors}">
+          <div *ngIf="submitted && validate.email.errors" class="invalid-feedback">
+            <div *ngIf="validate.email.errors.required">Email Id is required</div>
+            <div *ngIf="validate.email.errors.pattern">Enter a valid Email</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label >Upload an Image</label>
+            <input #imageInput
+                   type="file"
+                   accept="image/*"
+                   (change)="processFile($event)" formControlName="image" [ngClass]="{'is-invalid': submitted && validate.image.errors}" />
+            <div   class="invalid-upload" *ngIf=" submitted && validate.image.errors">
+              <div>Picture not uploaded</div>
+            </div>       
+        </div>
+          
+        <div class="form-group">
+            <button class="btn btn-primary" >Submit</button>
+            <span style="padding-right:1em;"></span>
+            <button (click)="goBack()" class="btn btn-primary" >Back</button>
+            <div *ngIf="flag" class="Submission">
+              <p>Submitting Please Wait....</p>
+            </div>
+            <div *ngIf="success" class="Submission">
+                <p>Submitted Succesfully </p>
+            </div> 
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+
+

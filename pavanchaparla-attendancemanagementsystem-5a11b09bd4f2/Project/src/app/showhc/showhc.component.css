@@ -1,0 +1,21 @@
+.box{
+    margin: 0%;
+    height: auto;
+ 
+}
+.left {
+    margin-left: 0%;
+}
+
+
+.left,.right{
+    margin-bottom: 4%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.jumbotron{
+background-image: url('../../assets/idhc.jpg');
+}
+h5{
+    font-family:  Serif;
+    font-style: bold;
+}

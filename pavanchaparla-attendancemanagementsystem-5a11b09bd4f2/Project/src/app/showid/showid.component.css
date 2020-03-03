@@ -1,0 +1,11 @@
+.jumbotron {
+    background-image: url('../../assets/idhc.jpg');
+    padding-left:0px;
+    padding-bottom:0px;
+    padding-top:5px;
+}
+.address{
+    width:298px;
+    margin-top:0px;
+    padding-top:5px;
+}

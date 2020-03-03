@@ -1,0 +1,13 @@
+<div id="myMenu" class="menu">
+  <a class="closebtn fa fa-close" (click)="closeMenu()" style="color:black" ></a>
+  <a  (click)="displayAdmin()">About</a>
+  <div class="text" *ngIf="showAdmin">SG-Mobile v1.0</div>
+  <a  (click)="displayShowHelp()">Help</a>
+  <div class="text" *ngIf="showHelp">Contact Admin@senecaglobal.com</div>
+  <a class="fa fa-sign-out logout" routerLink="" (click)="logout()" > logout</a>
+</div>
+
+<div class="header">
+  <a href="javascript:history.go(-1)" style="text-decoration:none; margin-left: 10px;" class="fa fa-arrow-left arrow" ></a>
+  <span style="float:right ; margin-right: 10px" (click)="openMenu()">☰</span>
+</div>

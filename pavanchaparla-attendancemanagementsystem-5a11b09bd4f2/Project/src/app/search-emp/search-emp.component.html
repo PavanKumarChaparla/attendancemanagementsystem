@@ -1,0 +1,12 @@
+<app-menu></app-menu>
+<div class="form-group container">
+  <label>Enter Associate ID</label>
+  <input [(ngModel)]="searchText" type="text" class="form-control">
+</div>
+<div class="container list">
+    <li *ngFor="let employee of data  | filter : searchText " >
+       <span (click)="createHc(employee)"  routerLink="./addhc"> {{ employee }} </span>
+    </li>
+</div>
+
+<!-- //https://codeburst.io/create-a-search-pipe-to-dynamically-filter-results-with-angular-4-21fd3a5bec5c -->
